@@ -1,6 +1,15 @@
 server:
   port: 8080
 spring:
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        cluster-name: SH # 配置集群
+        # namespace: dev-01 # 配置namespace (namespace ID)
+        ephemeral: true # 配置实例为永久实例
+  application:
+    name: order-service
   datasource:
     url: jdbc:mysql://localhost:3306/cloud_order?useSSL=false
     username: root
@@ -15,3 +24,14 @@ logging:
     cn.itcast: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone:  http://127.0.0.1:10086/eureka
+user-service: # 微服务名称
+  ribbon: # 负载均衡规则
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+ribbon:
+  eager-load:
+    clients: user-service # 懒加载服务端
+    enabled: true # 开启懒加载
