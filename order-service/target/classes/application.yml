@@ -3,10 +3,11 @@ server:
 spring:
   cloud:
     nacos:
+      server-addr: localhost:8848
       discovery:
         cluster-name: SH # 配置集群
         # namespace: dev-01 # 配置namespace (namespace ID)
-      server-addr: localhost:8848
+        ephemeral: true # 配置实例为永久实例
   application:
     name: order-service
   datasource:
