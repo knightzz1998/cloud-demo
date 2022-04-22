@@ -1,8 +1,9 @@
 package cn.itcast.order.service;
 
+import cn.itcast.feign.clients.UserClient;
+import cn.itcast.feign.pojo.User;
 import cn.itcast.order.mapper.OrderMapper;
 import cn.itcast.order.pojo.Order;
-import cn.itcast.order.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -18,14 +19,14 @@ public class OrderService {
     @Resource
     private RestTemplate restTemplate;
 
+    @Resource
+    private UserClient userClient;
+
     public Order queryOrderById(Long orderId) {
         // 1.查询订单
         Order order = orderMapper.findById(orderId);
-        // 2.根据订单的用户id查询用户信息
-        // String url = "http://localhost:8081/user/" + order.getUserId();
-        // 使用微服务名代替ip和端口解决硬编问题
-        String url = "http://user-service/user/" + order.getUserId();
-        User user = restTemplate.getForObject(url, User.class);
+        // 使用Feign解决远程调用
+        User user = userClient.findById(order.getUserId());
         // 3.将用户信息封装到订单中
         order.setUser(user);
         return order;
