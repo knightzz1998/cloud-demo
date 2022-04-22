@@ -12,3 +12,4 @@
 - [微服务系列（3）- Ribbon负载均衡](https://blog.csdn.net/weixin_40040107/article/details/124297547)
 - [微服务系列（4）- Nacos注册中心](https://blog.csdn.net/weixin_40040107/article/details/124320784)
 - [微服务系列（5）- Nacos负载均衡与环境隔离](https://blog.csdn.net/weixin_40040107/article/details/124323938)
+- [微服务系列（6）- Nacos配置管理](https://blog.csdn.net/weixin_40040107/article/details/124340509)

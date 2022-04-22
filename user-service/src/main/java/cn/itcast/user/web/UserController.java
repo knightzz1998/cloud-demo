@@ -45,4 +45,9 @@ public class UserController {
                         ofPattern(patternProperties.getDateformat()));
     }
 
+    @GetMapping("share")
+    public PatternProperties shareValue(){
+        return patternProperties;
+    }
+
 }
