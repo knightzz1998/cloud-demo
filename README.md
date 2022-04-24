@@ -14,3 +14,4 @@
 - [微服务系列（5）- Nacos负载均衡与环境隔离](https://blog.csdn.net/weixin_40040107/article/details/124323938)
 - [微服务系列（6）- Nacos配置管理](https://blog.csdn.net/weixin_40040107/article/details/124340509)
 - [微服务系列（7）- Feign使用与优化](https://blog.csdn.net/weixin_40040107/article/details/124350993)
+- [微服务系列（8）- Gateway服务网关](https://blog.csdn.net/weixin_40040107/article/details/124392552)
